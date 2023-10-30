@@ -21,3 +21,20 @@ class Compress:
         file2.write(CompressedText)
         file2.close()
 
+    def decompress(self):
+        file = open(self.__path)
+        text = file.read()
+        file.close()
+        decompressedText = ''
+        counter = ''
+        for i in range(len(text)):
+            if text[i].isnumeric():
+                counter += text[i]
+            else:
+                letter = text[i]
+                decompressedText += int(counter) * letter
+                counter=''
+        file2 = open("dempressed", 'w')
+        file2.write(decompressedText)
+        file2.close()
+
